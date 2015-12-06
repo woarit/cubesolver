@@ -7,10 +7,12 @@ include_directories(include)
 
 set(SOURCE_FILES
         include/cubesolver/axis.h
+        include/cubesolver/piece.h
         include/cubesolver/sticker.h
         include/cubesolver/tile.h
 
         src/main.cpp
+        src/piece.cpp
         src/tile.cpp
         )
 add_executable(cubesolver ${SOURCE_FILES})
