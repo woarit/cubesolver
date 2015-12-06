@@ -7,6 +7,7 @@
 #include "cubesolver/side.h"
 
 #include <vector>
+#include <iosfwd>
 
 namespace cube_solver
 {
@@ -16,6 +17,8 @@ namespace cube_solver
  */
 class Cube
 {
+    friend std::ostream& operator<<(std::ostream &out, const Cube &cube);
+
 public:
 
     /**
@@ -92,6 +95,19 @@ private:
 
     Side m_front, m_left, m_back, m_right, m_up, m_down;
 };
+
+/**
+ * Outputting the cube to the given stream.
+ * Each side of the cube is printed out in separate
+ * section with a title and the stickers (as they
+ * are printed by Side).
+ *
+ * @param out stream to write to
+ * @param side the cube to output
+ *
+ * @return the same stream as given, after outputting the cube
+ */
+std::ostream& operator<<(std::ostream &out, const Cube &cube);
 
 }
 

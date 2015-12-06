@@ -1,5 +1,6 @@
 #include "cubesolver/cube.h"
 
+#include <ostream>
 #include <stdexcept>
 
 namespace cube_solver
@@ -100,6 +101,29 @@ Cube Cube::fromCategories(const std::vector<Sticker> &tiles)
 #endif
 
     return Cube({tiles[42], tiles[35], tiles[5]},{tiles[41],tiles[32],tiles[24]},{tiles[15],tiles[33],tiles[23]},{tiles[14],tiles[34],tiles[6]},{tiles[43],tiles[50],tiles[8]},{tiles[44],tiles[53],tiles[25]},{tiles[16],tiles[52],tiles[26]},{tiles[17],tiles[51],tiles[7]},{tiles[0]},{tiles[36]},{tiles[18]},{tiles[9]},{tiles[27]},{tiles[45]},{tiles[30],tiles[1]},{tiles[37],tiles[31]},{tiles[28],tiles[19]},{tiles[10],tiles[29]},{tiles[38],tiles[4]},{tiles[40],tiles[20]},{tiles[11],tiles[22]},{tiles[13],tiles[2]},{tiles[46],tiles[3]},{tiles[39],tiles[49]},{tiles[48],tiles[21]},{tiles[12],tiles[47]});
+}
+
+std::ostream &operator<<(std::ostream &out, const Cube &cube)
+{
+    return out
+           << "Front:" << std::endl
+           << cube.m_front << std::endl
+           << std::endl
+           << "Right:" << std::endl
+           << cube.m_right << std::endl
+           << std::endl
+           << "Back:" << std::endl
+           << cube.m_back << std::endl
+           << std::endl
+           << "Up:" << std::endl
+           << cube.m_up << std::endl
+           << std::endl
+           << "Left:" << std::endl
+           << cube.m_left << std::endl
+           << std::endl
+           << "Down:" << std::endl
+           << cube.m_down << std::endl
+           << std::endl;
 }
 
 }
