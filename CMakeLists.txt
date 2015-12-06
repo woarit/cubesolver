@@ -3,5 +3,9 @@ project(cubesolver)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-set(SOURCE_FILES src/main.cpp)
+include_directories(include)
+
+set(SOURCE_FILES
+        src/main.cpp
+        )
 add_executable(cubesolver ${SOURCE_FILES})
