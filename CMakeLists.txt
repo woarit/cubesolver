@@ -8,6 +8,7 @@ include_directories(include)
 set(SOURCE_FILES
         include/cubesolver/axis.h
         include/cubesolver/corner.h
+        include/cubesolver/cube.h
         include/cubesolver/edge.h
         include/cubesolver/piece.h
         include/cubesolver/side.h
@@ -15,6 +16,7 @@ set(SOURCE_FILES
         include/cubesolver/tile.h
 
         src/corner.cpp
+        src/cube.cpp
         src/edge.cpp
         src/main.cpp
         src/piece.cpp
