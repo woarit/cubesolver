@@ -10,6 +10,7 @@ set(SOURCE_FILES
         include/cubesolver/corner.h
         include/cubesolver/edge.h
         include/cubesolver/piece.h
+        include/cubesolver/side.h
         include/cubesolver/sticker.h
         include/cubesolver/tile.h
 
@@ -17,6 +18,7 @@ set(SOURCE_FILES
         src/edge.cpp
         src/main.cpp
         src/piece.cpp
+        src/side.cpp
         src/tile.cpp
         )
 add_executable(cubesolver ${SOURCE_FILES})
