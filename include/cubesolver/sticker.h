@@ -1,6 +1,8 @@
 #ifndef CUBESOLVER_STICKER_H
 #define CUBESOLVER_STICKER_H
 
+#include <iosfwd>
+
 namespace cube_solver
 {
 
@@ -19,6 +21,19 @@ enum class Sticker
     BLUE,
     GREEN,
 };
+
+/**
+ * Outputting the sticker to the given stream.
+ * This will be as a capital letter representing
+ * the sticker. An invalid sticker will be a
+ * question mark.
+ *
+ * @param out stream to write to
+ * @param sticker the sticker to output
+ *
+ * @return the same stream as given, after outputting the sticker
+ */
+std::ostream& operator<<(std::ostream &out, const Sticker &sticker);
 
 }
 

@@ -21,6 +21,7 @@ set(SOURCE_FILES
         src/main.cpp
         src/piece.cpp
         src/side.cpp
+        src/sticker.cpp
         src/tile.cpp
         )
 add_executable(cubesolver ${SOURCE_FILES})
