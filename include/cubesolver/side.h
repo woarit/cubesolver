@@ -6,6 +6,8 @@
 #include "cubesolver/edge.h"
 #include "cubesolver/tile.h"
 
+#include <iosfwd>
+
 namespace cube_solver
 {
 
@@ -16,6 +18,8 @@ namespace cube_solver
  */
 class Side
 {
+    friend std::ostream& operator<< (std::ostream &out, const Side &cPoint);
+
 public:
 
     /**
@@ -49,6 +53,21 @@ private:
     TileRef *m_middle;
     EdgeRef *m_topEdge, *m_rightEdge, *m_bottomEdge, *m_leftEdge;
 };
+
+/**
+ * Outputting the side to the given stream.
+ * This will both be the 9 stickers of the side and
+ * the 3 stickers next to on each side.
+ * Each "line" of the side will be printed on separate
+ * lines and spaces without a sticker will be printed
+ * as a space (" ") such that the stickers align.
+ *
+ * @param out stream to write to
+ * @param side the side to output
+ *
+ * @return the same stream as given, after outputting the side
+ */
+std::ostream& operator<<(std::ostream &out, const Side &side);
 
 }
 
