@@ -30,6 +30,21 @@ cube_solver::Axis getTopBottomAxis(cube_solver::Axis axis)
     }
 }
 
+template<typename T>
+void swapAndRotate(cube_solver::Axis axis, T **a, T **b, T **c, T **d)
+{
+    T *temp = *d;
+    *d = *c;
+    *c = *b;
+    *b = *a;
+    *a = temp;
+
+    (*a)->rotate(axis);
+    (*b)->rotate(axis);
+    (*c)->rotate(axis);
+    (*d)->rotate(axis);
+}
+
 }
 
 namespace cube_solver
@@ -46,6 +61,27 @@ Side::Side(
         , m_middle(middle)
         , m_topEdge(topEdge), m_rightEdge(rightEdge), m_bottomEdge(bottomEdge), m_leftEdge(leftEdge)
 {
+}
+
+void Side::rotate(Side::Rotation rotation)
+{
+    switch(rotation)
+    {
+        case Rotation::CLOCKWISE:
+            swapAndRotate(m_axisSelf, m_topLeftCorner, m_topRightCorner, m_bottomRightCorner, m_bottomLeftCorner);
+            swapAndRotate(m_axisSelf, m_topEdge, m_rightEdge, m_bottomEdge, m_leftEdge);
+            break;
+        case Rotation::COUNTER_CLOCKWISE:
+            swapAndRotate(m_axisSelf, m_topLeftCorner, m_bottomLeftCorner, m_bottomRightCorner, m_topRightCorner);
+            swapAndRotate(m_axisSelf, m_topEdge, m_leftEdge, m_bottomEdge, m_rightEdge);
+            break;
+        case Rotation::DOUBLE: // We swap with opposite - but no need to rotate the pieces.
+            std::swap(*m_rightEdge, *m_leftEdge);
+            std::swap(*m_topEdge, *m_bottomEdge);
+            std::swap(*m_topLeftCorner, *m_bottomRightCorner);
+            std::swap(*m_bottomLeftCorner, *m_topRightCorner);
+            break;
+    }
 }
 
 std::ostream& operator<<(std::ostream &out, const Side &side)

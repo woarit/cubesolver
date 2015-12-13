@@ -57,6 +57,13 @@ public:
             EdgeRef *topEdge, EdgeRef *rightEdge, EdgeRef *bottomEdge, EdgeRef *leftEdge
     );
 
+    /**
+     * Rotate the side by the given rotation. The rotation
+     * is based on the sides current position and not its
+     * original state.
+     */
+    void rotate(Rotation rotation);
+
 private:
     Axis m_axisSelf, m_axisLeftRight, m_axisTopBottom;
     CornerRef *m_topLeftCorner, *m_topRightCorner, *m_bottomRightCorner, *m_bottomLeftCorner;
