@@ -22,6 +22,39 @@ class Cube
 public:
 
     /**
+     * Types of moves the cube can do.
+     *
+     * Each starting letter represents the side that origins the move:
+     * F(ront), B(ack), R(ight), L(eft), U(p), D(own)
+     *
+     * The remaining symbols specifies how the move is done (X is the side):
+     * - X (no symbols): Outer layer clockwise move
+     * - X_: Outer layer counter clockwise move
+     * - X2: Outer layer double rotation
+    */
+    enum class Move
+    {
+        F,
+        F_,
+        F2,
+        R,
+        R_,
+        R2,
+        B,
+        B_,
+        B2,
+        L,
+        L_,
+        L2,
+        U,
+        U_,
+        U2,
+        D,
+        D_,
+        D2,
+    };
+
+    /**
      * Constructs the cube. It is recommended to use one of the static
      * helper functions to create the cube instead of using the constructor
      * directly.
