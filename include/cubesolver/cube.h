@@ -117,6 +117,13 @@ public:
      */
     static Cube fromCategories(const std::vector<Sticker> &tiles);
 
+    /**
+     * Performs a move on the cube. The movement
+     * is based on the cubes current position and not its
+     * original state.
+     */
+    void rotate(Move move);
+
 private:
     Corner m_cornerUpFrontLeft, m_cornerUpBackLeft, m_cornerUpBackRight, m_cornerUpFrontRight, m_cornerDownFrontLeft, m_cornerDownBackLeft, m_cornerDownBackRight, m_cornerDownFrontRight;
     Tile m_middleFront, m_middleLeft, m_middleBack, m_middleRight, m_middleUp, m_middleDown;

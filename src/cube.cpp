@@ -103,6 +103,67 @@ Cube Cube::fromCategories(const std::vector<Sticker> &tiles)
     return Cube({tiles[42], tiles[35], tiles[5]},{tiles[41],tiles[32],tiles[24]},{tiles[15],tiles[33],tiles[23]},{tiles[14],tiles[34],tiles[6]},{tiles[43],tiles[50],tiles[8]},{tiles[44],tiles[53],tiles[25]},{tiles[16],tiles[52],tiles[26]},{tiles[17],tiles[51],tiles[7]},{tiles[0]},{tiles[36]},{tiles[18]},{tiles[9]},{tiles[27]},{tiles[45]},{tiles[30],tiles[1]},{tiles[37],tiles[31]},{tiles[28],tiles[19]},{tiles[10],tiles[29]},{tiles[38],tiles[4]},{tiles[40],tiles[20]},{tiles[11],tiles[22]},{tiles[13],tiles[2]},{tiles[46],tiles[3]},{tiles[39],tiles[49]},{tiles[48],tiles[21]},{tiles[12],tiles[47]});
 }
 
+void Cube::rotate(Cube::Move move)
+{
+    switch(move)
+    {
+        case Move::F:
+            m_front.rotate(Side::Rotation::CLOCKWISE);
+            break;
+        case Move::F_:
+            m_front.rotate(Side::Rotation::COUNTER_CLOCKWISE);
+            break;
+        case Move::F2:
+            m_front.rotate(Side::Rotation::DOUBLE);
+            break;
+        case Move::R:
+            m_right.rotate(Side::Rotation::CLOCKWISE);
+            break;
+        case Move::R_:
+            m_right.rotate(Side::Rotation::COUNTER_CLOCKWISE);
+            break;
+        case Move::R2:
+            m_right.rotate(Side::Rotation::DOUBLE);
+            break;
+        case Move::B:
+            m_back.rotate(Side::Rotation::CLOCKWISE);
+            break;
+        case Move::B_:
+            m_back.rotate(Side::Rotation::COUNTER_CLOCKWISE);
+            break;
+        case Move::B2:
+            m_back.rotate(Side::Rotation::DOUBLE);
+            break;
+        case Move::L:
+            m_left.rotate(Side::Rotation::CLOCKWISE);
+            break;
+        case Move::L_:
+            m_left.rotate(Side::Rotation::COUNTER_CLOCKWISE);
+            break;
+        case Move::L2:
+            m_left.rotate(Side::Rotation::DOUBLE);
+            break;
+        case Move::U:
+            m_up.rotate(Side::Rotation::CLOCKWISE);
+            break;
+        case Move::U_:
+            m_up.rotate(Side::Rotation::COUNTER_CLOCKWISE);
+            break;
+        case Move::U2:
+            m_up.rotate(Side::Rotation::DOUBLE);
+            break;
+        case Move::D:
+            m_up.rotate(Side::Rotation::CLOCKWISE);
+            break;
+        case Move::D_:
+            m_up.rotate(Side::Rotation::COUNTER_CLOCKWISE);
+            break;
+        case Move::D2:
+            m_up.rotate(Side::Rotation::DOUBLE);
+            break;
+    }
+}
+
 std::ostream &operator<<(std::ostream &out, const Cube &cube)
 {
     return out
