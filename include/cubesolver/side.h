@@ -23,6 +23,16 @@ class Side
 public:
 
     /**
+     * Types of rotations the side can do
+     */
+    enum class Rotation
+    {
+        CLOCKWISE,          // 90 degrees
+        COUNTER_CLOCKWISE,  // -90 degrees = 270 degrees
+        DOUBLE,             // 180 degrees
+    };
+
+    /**
      * Constructs a side consisting of the elements provided.
      * The reference to the elements will be kept and thus they
      * should not be deleted before this class is destructed.
