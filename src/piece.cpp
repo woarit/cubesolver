@@ -16,7 +16,6 @@ Piece::Piece(Sticker x, Sticker y, Sticker z) : m_x(x), m_y(y), m_z(z)
         stream << "Pieces can't have equal tiles. x: " << x << "; y: " << y << "; z: " << z;
         throw std::runtime_error(stream.str());
     }
-
 #endif
 }
 
@@ -34,6 +33,22 @@ Sticker Piece::getSticker(Axis axis) const
             return m_y;
         case Axis::Z:
             return m_z;
+    }
+}
+
+void Piece::rotate(Axis rotationAxis)
+{
+    switch (rotationAxis)
+    {
+        case Axis::X:
+            std::swap(m_y, m_z);
+            break;
+        case Axis::Y:
+            std::swap(m_x, m_z);
+            break;
+        case Axis::Z:
+            std::swap(m_x, m_y);
+            break;
     }
 }
 

@@ -38,6 +38,15 @@ public:
      */
     Sticker getSticker(Axis axis) const;
 
+    /**
+     * Rotate the piece around the given axis.
+     *
+     * @param rotationAxis  axis that is the center of rotation. The sticker
+     *                      of that axis will remain the same, the two other
+     *                      will switch place.
+     */
+    void rotate(Axis rotationAxis);
+
 protected:
     Sticker m_x, m_y, m_z;
 };
